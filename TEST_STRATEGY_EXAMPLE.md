@@ -92,12 +92,9 @@ Integration tests are written for `order-engine` only. `payment-service` and `st
 Tests use an **actor pattern**: each actor (`Customer`, `Warehouse`, `PaymentSystem`) represents a persona or third-party system and exposes business-named methods. Tests read like a paragraph — every action is immediately followed by the WebSocket assertion it produces.
 
 ### Covers
-- Happy path (stock first): `CREATED → RESERVED → READY_TO_SHIP → SHIPPING → DELIVERED`
-- Happy path (payment first): `CREATED → PAID → READY_TO_SHIP → SHIPPING → DELIVERED`
-- Compensation — releasing reservation: `RESERVED → RELEASING_RESERVATION → CANCELLED`
-- Compensation — returning payment: `PAID → RETURNING_PAYMENT → CANCELLED`
-- Early cancellation: `CREATED → CANCELLED` (immediate user cancel)
-- WebSocket frame sequence — STOMP frames arrive in the correct status order for each flow
+- Complete business flows through the live Docker Compose stack — any path from order
+  creation to a terminal state (`DELIVERED` or `CANCELLED`)
+- WebSocket STOMP frame delivery — frames arrive in the correct status order for each flow
 
 ### Excludes
 - State-machine edge cases — all 15 valid and invalid transitions are exhaustively covered at Level 1
@@ -146,6 +143,16 @@ mvn verify -Pe2e -pl e2e-tests
 | `@testing-library/jest-dom` | DOM assertion matchers |
 | jsdom | Browser environment for Node |
 | `vi.mock` | Mocks axios and `@stomp/stompjs` at the module boundary |
+
+New devDependencies to add to `order-ui/package.json`:
+- `vitest`
+- `@testing-library/react`
+- `@testing-library/user-event`
+- `@testing-library/jest-dom`
+- `jsdom`
+
+### Target count
+12–20 tests.
 
 ---
 

@@ -69,10 +69,8 @@ Level 3 — E2E           → [Brief description, e.g., Complete flows, live sys
 [Describe the structural pattern for this level — e.g., Screenplay pattern (Serenity/J), Gherkin scenarios with Cucumber/SerenityBDD, or a custom actor/DSL approach. Explain how tests are organised and why this approach aids readability and maintenance.]
 
 ### Covers
-- [Workflow 1]
-- [Workflow 2]
-- [Edge case / compensation flow]
-- [Feature X]
+- [Capability or business rule — describe scope broadly, not specific test cases, e.g., "Complete flows from entry point to any terminal state"]
+- [Observable system behaviour — e.g., "Events/messages arrive in correct order for each flow"]
 
 ### Excludes
 - Exhaustive edge cases — covered at Level 1
@@ -98,8 +96,8 @@ Level 3 — E2E           → [Brief description, e.g., Complete flows, live sys
 [Describe the structural pattern for this level — e.g., Page Object Model with Playwright (UI tests); load profile and virtual user model with k6 or Gatling (performance tests). Explain key design decisions that shape how tests at this level are written.]
 
 ### Covers
-- [Component/contract/scenario 1]
-- [Component/contract/scenario 2]
+- [Capability or behaviour rule — e.g., "All supported component states render correctly" or "P99 latency stays under X ms at Y RPS"]
+- [Another rule area]
 
 ### Excludes
 - [What's not covered and why]
