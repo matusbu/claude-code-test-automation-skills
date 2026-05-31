@@ -64,6 +64,10 @@ Level 3 — E2E           → [Brief description, e.g., Complete flows, live sys
 
 **Purpose:** Verify complete business flows through live system.
 
+### Design
+
+[Describe the structural pattern for this level — e.g., Screenplay pattern (Serenity/J), Gherkin scenarios with Cucumber/SerenityBDD, or a custom actor/DSL approach. Explain how tests are organised and why this approach aids readability and maintenance.]
+
 ### Covers
 - [Workflow 1]
 - [Workflow 2]
@@ -88,6 +92,10 @@ Level 3 — E2E           → [Brief description, e.g., Complete flows, live sys
 > **Note:** Add additional test levels as needed for your project (e.g., component tests, contract tests, visual regression, performance tests)
 
 **Purpose:** [What this level verifies]
+
+### Design
+
+[Describe the structural pattern for this level — e.g., Page Object Model with Playwright (UI tests); load profile and virtual user model with k6 or Gatling (performance tests). Explain key design decisions that shape how tests at this level are written.]
 
 ### Covers
 - [Component/contract/scenario 1]

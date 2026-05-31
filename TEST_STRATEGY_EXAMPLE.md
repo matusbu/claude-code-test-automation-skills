@@ -87,6 +87,10 @@ Integration tests are written for `order-engine` only. `payment-service` and `st
 
 **Purpose:** Verify complete business flows through the live Docker Compose stack — from the first REST call to the final persisted status, including WebSocket push notifications.
 
+### Design
+
+Tests use an **actor pattern**: each actor (`Customer`, `Warehouse`, `PaymentSystem`) represents a persona or third-party system and exposes business-named methods. Tests read like a paragraph — every action is immediately followed by the WebSocket assertion it produces.
+
 ### Covers
 - Happy path (stock first): `CREATED → RESERVED → READY_TO_SHIP → SHIPPING → DELIVERED`
 - Happy path (payment first): `CREATED → PAID → READY_TO_SHIP → SHIPPING → DELIVERED`
@@ -100,10 +104,6 @@ Integration tests are written for `order-engine` only. `payment-service` and `st
 - Input validation details — covered at Level 1 and Level 2
 - Frontend UI interaction — covered at Level 4
 - Failure recovery and resilience scenarios (out of scope for this educational project)
-
-### Design
-
-Tests use an **actor pattern**: each actor (`Customer`, `Warehouse`, `PaymentSystem`) represents a persona or third-party system and exposes business-named methods. Tests read like a paragraph — every action is immediately followed by the WebSocket assertion it produces.
 
 ### Tooling
 | Tool | Role |
